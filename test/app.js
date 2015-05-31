@@ -25,16 +25,14 @@ describe('New bulletin form', function(){
 describe('Bulletins Api', function(){
   var bulletin 
   before(function(done) {
-    bulletin = new Bulletin({name: 'Condemor diodenoo condemor', 
-        published_at: new Date(), 
-        body: 'Lorem fistrum al ataquerl apetecan pecador benemeritaar. Ese pedazo de me cago en tus muelas llevame al sircoo benemeritaar.'});
-    bulletin.save(function(err){
-      done();
+    Bulletin.remove({}, function(){
+      bulletin = new Bulletin({name: 'Condemor diodenoo condemor', 
+          published_at: new Date(), 
+          body: 'Lorem fistrum al ataquerl apetecan pecador benemeritaar. Ese pedazo de me cago en tus muelas llevame al sircoo benemeritaar.'});
+      bulletin.save(function(err){
+        done();
+      });
     });
-  });
-
-  after(function(done) {
-    Bulletin.remove({}, done)
   });
   
   describe('list', function(){
