@@ -3,5 +3,9 @@ html
     title Bulletins | San Esteban de Litera
   body
     h1 Bulletins Server
+    a(href="/bulletins/new") Crear un nuevo boletín
     p.
       Boletines de noticias de San Esteban de Litera
+    ul
+      each bulletin in bulletins
+        li= bulletin.name
