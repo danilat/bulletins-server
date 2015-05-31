@@ -1,0 +1,12 @@
+html
+  head
+    title Crear boletín
+  body
+    form(action="/bulletins", method="post")
+      label Título
+      input(type="text", name="name")
+      br
+      label Noticia
+      textarea(name="body")
+      br
+      input(type="submit", value="Crear")

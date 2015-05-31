@@ -5,11 +5,19 @@ var mongoose = require('mongoose');
 var Bulletin = require('./../bulletin_model.js')
 
 describe('Root path /', function(){
-    it('should respond OK', function(done){
-      request
-        .get('/')
-        .expect(200, done);
-    });
+  it('should respond OK', function(done){
+    request
+      .get('/')
+      .expect(200, done);
+  });
+});
+
+describe('Create bulletin form', function(){
+  it('should respond OK', function(done){
+    request
+      .get('/bulletins/new')
+      .expect(200, done);
+  });
 });
 
 describe('Bulletins Api', function(){

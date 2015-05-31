@@ -3,8 +3,12 @@ var mongoose = require('mongoose');
 var Bulletin = require('./bulletin_model.js')
 var app = express();
 
+app.set('view engine', 'jade');
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  res.render('index');
+});
+app.get('/bulletins/new', function (req, res) {
+  res.render('new');
 });
 app.get('/api/bulletins', function (req, res) {
   Bulletin.find({}, function (err, docs) {
