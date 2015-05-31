@@ -3,7 +3,6 @@ process.env.NODE_ENV = 'test'
 var assert = require("assert");
 var app = require('./../app.js');
 var request = require('supertest')('http://127.0.0.1:3000');
-var mongoose = require('mongoose');
 var Bulletin = require('./../bulletin_model.js')
 
 describe('Root path /', function(){
@@ -19,6 +18,30 @@ describe('New bulletin form', function(){
     request
       .get('/bulletins/new')
       .expect(200, done);
+  });
+});
+
+describe('When create bulletin', function(){
+  before(function(done) {
+    Bulletin.remove({}, function(){
+      done();
+    });
+  });
+
+  it('should be present on the app', function(done){
+    var data = {
+        name: 'foobar',
+        body: '7 caballos que vienen de Bonanza'
+    };
+    request
+      .post('/bulletins')
+      .send(data)
+      .end(function(err, res) {
+        Bulletin.find({}, function (error, bulletins) {
+          assert.equal(1, bulletins.length)
+          done();
+        });
+      });
   });
 });
 

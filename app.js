@@ -16,8 +16,8 @@ app.get('/bulletins/new', function (req, res) {
   res.render('new');
 });
 app.post('/bulletins', function (req, res) {
-  bulletin = new Bulletin({name: req.body.name, 
-        body: req.body.body});
+  console.log(req.body)
+  bulletin = new Bulletin({name: req.body.name, body: req.body.body});
   bulletin.save(function(err){
     res.redirect('/');
   });
@@ -30,7 +30,9 @@ app.get('/api/bulletins', function (req, res) {
 });
 
 var server = app.listen(3000, function () {
+  console.log(process.env.NODE_ENV)
   if(process.env.NODE_ENV == 'test'){
+
     mongoose.connect('mongodb://localhost/test');
   }else{
     mongoose.connect('mongodb://localhost/bulletins-server');
