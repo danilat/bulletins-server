@@ -1,3 +1,5 @@
+process.env.NODE_ENV = 'test'
+
 var assert = require("assert");
 var app = require('./../app.js');
 var request = require('supertest')('http://127.0.0.1:3000');
@@ -12,7 +14,7 @@ describe('Root path /', function(){
   });
 });
 
-describe('Create bulletin form', function(){
+describe('New bulletin form', function(){
   it('should respond OK', function(done){
     request
       .get('/bulletins/new')
@@ -23,12 +25,12 @@ describe('Create bulletin form', function(){
 describe('Bulletins Api', function(){
   var bulletin 
   before(function(done) {
-    mongoose.connect('mongodb://localhost/test');
     bulletin = new Bulletin({name: 'Condemor diodenoo condemor', 
-        created_at: new Date(), 
+        published_at: new Date(), 
         body: 'Lorem fistrum al ataquerl apetecan pecador benemeritaar. Ese pedazo de me cago en tus muelas llevame al sircoo benemeritaar.'});
-    bulletin.save();
-    done();
+    bulletin.save(function(err){
+      done();
+    });
   });
 
   after(function(done) {
