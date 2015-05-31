@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.12.4"
+  },
+  "devDependencies": {
+    "supertest": "^1.0.1"
   }
 }
