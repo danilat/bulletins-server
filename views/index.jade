@@ -8,4 +8,11 @@ html
       Boletines de noticias de San Esteban de Litera
     ul
       each bulletin in bulletins
-        li= bulletin.name
+        li= bulletin.name 
+          a(href="/bulletins/" + bulletin.id) Ver
+          &nbsp;|&nbsp;
+          a(href="/bulletins/" + bulletin.id + "/edit") Editar
+          &nbsp;|&nbsp;
+          a(href="/bulletins/" + bulletin.id + "/delete") Eliminar
+          
+        

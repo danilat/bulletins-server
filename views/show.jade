@@ -1,0 +1,10 @@
+html
+  head
+    title #{bulletin.name}
+  body
+    h2 #{bulletin.name}
+    p !{bulletin.body.replace(/\n/g, '<br/>')}
+    
+    a(href="/") Volver al listado
+    br
+    a(href="/bulletins/" + bulletin.id + "/edit") Editar

@@ -22,6 +22,33 @@ app.post('/bulletins', function (req, res) {
     res.redirect('/');
   });
 });
+app.get('/bulletins/:id', function (req, res) {
+  Bulletin.findById(req.param('id'), function(err, bulletin){
+    res.render('show', {bulletin: bulletin});
+  })
+});
+app.get('/bulletins/:id/edit', function (req, res) {
+  Bulletin.findById(req.param('id'), function(err, bulletin){
+    res.render('edit', {bulletin: bulletin});
+  })
+});
+app.post('/bulletins/:id', function (req, res) {
+  Bulletin.findById(req.param('id'), function(err, bulletin){
+    bulletin.name = req.body.name;
+    bulletin.body = req.body.body;
+
+    bulletin.save(function(err){
+      res.redirect('/bulletins/' + bulletin.id);
+    });
+  })
+});
+app.get('/bulletins/:id/delete', function (req, res) {
+  Bulletin.findById(req.param('id'), function(err, bulletin){
+    bulletin.remove(function(error){
+      res.redirect('/');
+    });
+  })
+});
 
 app.get('/api/bulletins', function (req, res) {
   Bulletin.find({}, function (err, docs) {
