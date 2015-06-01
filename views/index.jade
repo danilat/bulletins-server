@@ -4,14 +4,19 @@ block title
   title= "Bulletins | San Esteban de Litera"
     
 block content
-  a(href="/bulletins/new") Crear un nuevo boletín
-  p.
-    Boletines de noticias
-  ul
-    each bulletin in bulletins
-      li= bulletin.name 
-        a(href="/bulletins/" + bulletin.id) Ver
-        &nbsp;|&nbsp;
-        a(href="/bulletins/" + bulletin.id + "/edit") Editar
-        &nbsp;|&nbsp;
-        a(href="/bulletins/" + bulletin.id + "/delete") Eliminar
+  h2 Boletines de noticias
+
+  table(class="table table-striped table-hover")
+    thead
+      th Nombre
+      th Acciones
+    tbody
+      each bulletin in bulletins
+        tr
+          td= bulletin.name
+          td
+            a(href="/bulletins/" + bulletin.id) Ver
+            &nbsp;|&nbsp;
+            a(href="/bulletins/" + bulletin.id + "/edit") Editar
+            &nbsp;|&nbsp;
+            a(href="/bulletins/" + bulletin.id + "/delete") Eliminar
