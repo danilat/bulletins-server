@@ -4,13 +4,18 @@ block title
   title= "Actualizar boletín"
 
 block content
-  form(action="/bulletins/"+ bulletin.id, method="post")
-    label Título
-    input(type="text", name="name", value=bulletin.name)
-    br
-    label Noticia
-    textarea(name="body") #{bulletin.body}
-    br
-    input(type="submit", value="Actualizar")
-  
-  a(href="/") Volver al listado
+  div(class="well bs-component")
+    form(action="/bulletins/"+ bulletin.id, method="post", class="form-horizontal")
+      fieldset
+        div(class="form-group")
+          label(class="col-lg-2 control-label") Título
+          div(class="col-lg-10")
+            input(class="form-control", type="text", name="name", value=bulletin.name)
+        div(class="form-group")
+          label(class="col-lg-2 control-label") Noticia
+          div(class="col-lg-10")
+            textarea(class="form-control", name="body", rows="15") #{bulletin.body}
+        div(class="form-group")
+          div(class="col-lg-10 col-lg-offset-2")
+            input(type="submit", value="Actualizar", class="btn btn-primary")
+            a(href="/", class="btn btn-default") Volver al listado

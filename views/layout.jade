@@ -1,9 +1,22 @@
 html
   head
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
     block title
   body
-    h1 Bulletins Server. San Esteban de Litera.
-    block content
-    block foot
-      #footer
-        p Desarrollado, con cariño, por Biera Solutions
+    div(class="navbar navbar-default navbar-fixed-top")
+      div(class="container")
+        div(class="navbar-header")
+          a(href="/", class="navbar-brand") Bulletins Server
+
+    div(class="container")
+      div(class="page-header")
+        h1 San Esteban de Litera
+      div(class="bs-docs-section clearfix")
+        div(class="row")
+          div(class="col-lg-12")
+            block content
+      block foot
+        footer
+          div(class="row")
+            div(class="col-lg-12") Desarrollado, con cariño, por 
+              a(href="http://bierasolutions.com", target="blank") Biera Solutions

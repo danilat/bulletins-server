@@ -6,6 +6,7 @@ var app = express();
 
 app.set('view engine', 'jade');
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static('public'));
 
 app.get('/', function (req, res) {
   Bulletin.find({}, function (err, docs) {
