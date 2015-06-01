@@ -7,6 +7,8 @@ block content
   h2 #{bulletin.name}
   p !{bulletin.body.replace(/\n/g, '<br/>')}
   
+  a(href="javascript:window.print();") Imprimir
+  br
   a(href="/") Volver al listado
   br
   a(href="/bulletins/" + bulletin.id + "/edit") Editar
