@@ -1,14 +1,16 @@
-html
-  head
-    title Actualizar boletín
-  body
-    form(action="/bulletins/"+ bulletin.id, method="post")
-      label Título
-      input(type="text", name="name", value=bulletin.name)
-      br
-      label Noticia
-      textarea(name="body") #{bulletin.body}
-      br
-      input(type="submit", value="Actualizar")
-    
-    a(href="/") Volver al listado
+extends ./layout.jade
+
+block title
+  title= "Actualizar boletín"
+
+block content
+  form(action="/bulletins/"+ bulletin.id, method="post")
+    label Título
+    input(type="text", name="name", value=bulletin.name)
+    br
+    label Noticia
+    textarea(name="body") #{bulletin.body}
+    br
+    input(type="submit", value="Actualizar")
+  
+  a(href="/") Volver al listado

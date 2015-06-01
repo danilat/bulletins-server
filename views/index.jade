@@ -1,18 +1,17 @@
-html
-  head
-    title Bulletins | San Esteban de Litera
-  body
-    h1 Bulletins Server
-    a(href="/bulletins/new") Crear un nuevo boletín
-    p.
-      Boletines de noticias de San Esteban de Litera
-    ul
-      each bulletin in bulletins
-        li= bulletin.name 
-          a(href="/bulletins/" + bulletin.id) Ver
-          &nbsp;|&nbsp;
-          a(href="/bulletins/" + bulletin.id + "/edit") Editar
-          &nbsp;|&nbsp;
-          a(href="/bulletins/" + bulletin.id + "/delete") Eliminar
-          
-        
+extends ./layout.jade
+
+block title
+  title= "Bulletins | San Esteban de Litera"
+    
+block content
+  a(href="/bulletins/new") Crear un nuevo boletín
+  p.
+    Boletines de noticias
+  ul
+    each bulletin in bulletins
+      li= bulletin.name 
+        a(href="/bulletins/" + bulletin.id) Ver
+        &nbsp;|&nbsp;
+        a(href="/bulletins/" + bulletin.id + "/edit") Editar
+        &nbsp;|&nbsp;
+        a(href="/bulletins/" + bulletin.id + "/delete") Eliminar
