@@ -4,7 +4,7 @@ block title
   title= bulletin.name
 
 block content
-  h2 Noticia: #{bulletin.name}
+  h2 #{bulletin.name}
   p !{bulletin.body.replace(/\n/g, '<br/>')}
   
   a(href="javascript:window.print();") Imprimir
