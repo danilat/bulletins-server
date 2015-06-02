@@ -57,7 +57,9 @@ app.get('/api/bulletins', function (req, res) {
   });
 });
 
-var server = app.listen(3000, function () {
+var theport = process.env.PORT || 3000;
+
+var server = app.listen(theport, function () {
   console.log(process.env.NODE_ENV)
   if(process.env.NODE_ENV == 'test'){
     mongoose.connect('mongodb://localhost/test');
