@@ -1,10 +1,10 @@
 extends ./layout.jade
 
 block title
-  title= "Actualizar boletín"
+  title= "Actualizar noticia"
 
 block content
-  h2 Actualizar boletín
+  h2 Actualizar noticia
   div(class="well bs-component")
     form(action="/bulletins/"+ bulletin.id, method="post", class="form-horizontal")
       fieldset
@@ -13,7 +13,7 @@ block content
           div(class="col-lg-10")
             input(class="form-control", type="text", name="name", value=bulletin.name)
         div(class="form-group")
-          label(class="col-lg-2 control-label") Noticia
+          label(class="col-lg-2 control-label") Cuerpo
           div(class="col-lg-10")
             textarea(class="form-control", name="body", rows="15") #{bulletin.body}
         div(class="form-group")
